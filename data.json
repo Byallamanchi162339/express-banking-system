@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "accountNumber": "1776356373458",
+      "email": "binduyallamanchi@gmail.com",
+      "password": "bindu@1623",
+      "balance": 1000,
+      "transactions": []
+    },
+    {
+      "accountNumber": "1776356449324",
+      "email": "binduyallamanchi@gmail.com",
+      "password": "bindu@1623",
+      "balance": 1000,
+      "transactions": []
+    }
+  ],
+  "transactions": []
+}

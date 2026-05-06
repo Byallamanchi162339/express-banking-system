@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Create Account</h2>
+  <input id="name" placeholder="Name"><br>
+  <input id="email" placeholder="Email"><br>
+  <input id="password" placeholder="Password"><br>
+  <button onclick="register()">Register</button>
+
+  <script>
+    function register() {
+      fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.value,
+          email: email.value,
+          password: password.value
+        })
+      })
+      .then(res => res.json())
+      .then(data => alert("Account No: " + data.accountNumber));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Dashboard</h2>
+  <div id="info"></div>
+
+  <h3>Transfer Money</h3>
+  <input id="toAcc" placeholder="Receiver Account No"><br>
+  <input id="amount" placeholder="Amount"><br>
+  <button onclick="transfer()">Send</button>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    info.innerHTML = `Account: ${user.accountNumber}<br>Balance: ₹${user.balance}`;
+
+    function transfer() {
+      fetch("/api/transfer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fromAcc: user.accountNumber,
+          toAcc: toAcc.value,
+          amount: parseInt(amount.value)
+        })
+      })
+      .then(res => res.json())
+      .then(msg => alert(msg.message));
+    }
+  </script>
+</body>
+</html>
